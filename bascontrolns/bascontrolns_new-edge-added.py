@@ -283,14 +283,14 @@ class Device:
                 # Parse XML.
                 root = et.fromstring(rsp.text)
                 # If request was ACK'd.
-                if root.attrib['rsp'] == 'ack':
+                ###if root.attrib['rsp'] == 'ack': ### Allow Wire Sheet Writes
                     # If point is under wire sheet control.
-                    if root.text == '1':
+                ###    if root.text == '1':
                         # We can't write.
-                        return -1
+                ###        return -1
                 # Else we were NAK'd; SERIOUS PROBLEM
-                else:
-                    return -1
+                ###else:
+                ###    return -1
                 #
                 # If we get here, we can proceed with the write operation.
                 #
@@ -325,7 +325,7 @@ class Device:
         if not self.online:
             # Set for retry.
             self.nextRetry = int(time.time())+self.retryInterval
-            # Raise an exception.
+            ### Raise an exception.
             ###raise IOError
             # NOT REACHED
         # And return.
@@ -426,6 +426,9 @@ class Device:
             if value == None:
                 return None
             # Return with value.
-            return int(value) if bIsBinary else float(value)
+            return float(value) if bIsBinary else float(value)
         # Else writing.
         return self.writeObject(index , aValue)
+
+# contemporary controls / Universal devices, sjb gtb 7/2019
+# Edited and re-vamped slightly on 8_19_2020 to remove IO error stopping Nodeserver
