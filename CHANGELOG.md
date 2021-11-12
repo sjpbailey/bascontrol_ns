@@ -8,5 +8,5 @@
 
 ### Version 0.0.4 June 2nd 2021
 
-- Added abillity to write to Sedona Sedona Wire Sheet nodes or points
+- Version 0.0.4 Added abillity to write to Sedona Wire Sheet nodes or points
 - Modified Virtual Values to control Nodes in Sedona Wire Sheet
